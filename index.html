@@ -528,8 +528,8 @@ footer p{margin:0}
   document.getElementById('yr').textContent = new Date().getFullYear();
 
   /* ---- Videó és megállók ---- */
-  var VIDEO_DESKTOP = 'assets/juniper_tour_polished_scrub.mp4';
-  var VIDEO_MOBILE  = 'assets/juniper_tour_mobile_scrub.mp4';
+  var VIDEO_DESKTOP = 'assets/tour-1080.mp4';  // 1920×1080, minden képkocka kulcskocka, 23 MB
+  var VIDEO_MOBILE  = 'assets/tour-720.mp4';   // 1280×720, minden képkocka kulcskocka, 12 MB
   var START = 0.6;            // az első teljesen kivilágosodott képkocka (0,0-0,55 mp beúszás)
   var STOPS = [2.0, 5.6, 8.5, 12.0, 15.4, 17.5, 20.5];
   var TOTAL = 700;            // a pin hossza vh-ban
@@ -610,48 +610,26 @@ footer p{margin:0}
   }
   video.addEventListener('loadeddata', onVideoReady);
 
-  function fallbackDirect(){
-    video.src = src;
-    video.load();
-    var poll = setInterval(function(){
-      if (video.duration && video.buffered.length) {
-        setProgress(video.buffered.end(video.buffered.length - 1) / video.duration);
-      }
-      if (video.duration && video.buffered.length && video.buffered.end(video.buffered.length - 1) >= video.duration - 0.1) {
-        clearInterval(poll); loadDone();
-      }
-    }, 200);
+  // A videó azonnal streamelődik (a tárhelynek Range-kéréseket kell támogatnia, a Vercel ilyen):
+  // az első képkockák után már látszik és tekerhető, a többi a háttérben töltődik.
+  function bufferedFraction(){
+    if (!video.duration) return 0;
+    var b = video.buffered, sum = 0;
+    for (var i = 0; i < b.length; i++) sum += b.end(i) - b.start(i);
+    return sum / video.duration;
   }
-
-  // A teljes fájlt memóriába töltjük, így a görgetés közbeni ugrás nem vár hálózatra.
-  function loadBlob(){
-    return fetch(src).then(function(res){
-      if (!res.ok || !res.body) throw new Error('fetch');
-      var total = +res.headers.get('Content-Length') || 0;
-      var reader = res.body.getReader();
-      var chunks = [], got = 0;
-      function pump(){
-        return reader.read().then(function(r){
-          if (r.done) return;
-          chunks.push(r.value); got += r.value.length;
-          if (total) setProgress(got / total);
-          return pump();
-        });
-      }
-      return pump().then(function(){
-        var blob = new Blob(chunks, { type: 'video/mp4' });
-        video.src = URL.createObjectURL(blob);
-        video.load();
-        loadDone();
-      });
-    });
-  }
-  if (window.fetch && window.ReadableStream && location.protocol !== 'file:') {
-    // egy újrapróbálás, utána közvetlen betöltés (ehhez a szervernek Range-kéréseket kell támogatnia)
-    loadBlob().catch(function(){ setProgress(0); return loadBlob(); }).catch(fallbackDirect);
-  } else {
-    fallbackDirect();
-  }
+  var finished = false;
+  function finish(){ if (finished) return; finished = true; clearInterval(poll); loadDone(); }
+  var poll = setInterval(function(){
+    var f = bufferedFraction();
+    setProgress(f);
+    // kész, ha minden megjött, vagy ha a böngésző már annyit pufferelt, amennyit magától akar
+    // (a többit görgetés közben, a lejátszófej előtt tölti tovább)
+    if (f >= 0.995 || (video.networkState === 1 && video.readyState >= 3 && f > 0.3)) finish();
+  }, 200);
+  video.addEventListener('error', finish);
+  video.src = src;
+  video.load();
 
   /* ---- Scroll timeline ---- */
   gsap.registerPlugin(ScrollTrigger);
