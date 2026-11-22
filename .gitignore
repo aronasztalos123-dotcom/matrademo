@@ -1,0 +1,5 @@
+_frames/
+.claude/
+.playwright-mcp/
+# a weboldal nem használja
+assets/juniper_tour_final.mp4

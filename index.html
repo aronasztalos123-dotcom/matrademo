@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="hu" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wellness kabin a Mátrában · Juniper Chalet Mátra</title>
+<meta name="description" content="Erdei A-ház privát jakuzzival és infraszaunával Mátraszentimrén. Max. 4 vendég, lombkorona-szintű kilátás, 4,9 ★ értékelés.">
+<meta name="theme-color" content="#1F2A22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/poster.jpg">
+<script>document.documentElement.className = 'js';</script>
+<style>
+:root{
+  --forest:#1F2A22;
+  --forest-2:#2A372D;
+  --cream:#F4EDE2;
+  --cream-2:#EAE0D0;
+  --wood:#B07A4A;
+  --wood-light:#D29A66;
+  --coal:#151515;
+  --ink:#24231F;
+  --muted:#6B675E;
+  --line:rgba(21,21,21,.14);
+  --line-light:rgba(244,237,226,.18);
+  --serif:'Cormorant Garamond', 'Times New Roman', serif;
+  --sans:'Manrope', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gutter:clamp(20px, 5vw, 72px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:auto}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--wood-light);outline-offset:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- loader ---------- */
+.loadbar{position:fixed;inset:0 0 auto 0;height:2px;z-index:100;pointer-events:none}
+.loadbar span{display:block;height:100%;width:100%;background:var(--wood-light);transform-origin:0 50%;transform:scaleX(0);transition:transform .25s linear, opacity .6s ease .3s}
+.loadbar.done span{opacity:0}
+.loadbar .lbl{position:fixed;top:12px;right:var(--gutter);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,237,226,.75);transition:opacity .6s ease}
+.loadbar.done .lbl{opacity:0}
+
+/* ---------- header ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px var(--gutter);padding-top:max(18px, env(safe-area-inset-top));color:var(--cream);transition:background .5s ease, color .5s ease, padding .5s ease}
+.top.solid{background:rgba(244,237,226,.86);color:var(--ink);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding-top:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.brand{font-family:var(--serif);font-size:20px;letter-spacing:.02em;text-decoration:none;line-height:1}
+.brand small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.7;margin-top:5px}
+.top-cta{font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:10px 18px;border:1px solid currentColor;border-radius:999px;transition:background .3s, color .3s}
+.top-cta:hover{background:var(--cream);color:var(--coal)}
+.top.solid .top-cta:hover{background:var(--forest);color:var(--cream);border-color:var(--forest)}
+
+/* ---------- tour (hero) ---------- */
+.tour{position:relative;height:100vh;height:100lvh;overflow:hidden;background:var(--coal);color:var(--cream)}
+.tour video,.tour .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tour .poster{z-index:0}
+.tour video{z-index:1;opacity:0;transition:opacity .6s ease}
+.tour video.ready{opacity:1}
+.tour::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(180deg, rgba(10,12,10,.42) 0%, rgba(10,12,10,0) 22%, rgba(10,12,10,0) 55%, rgba(10,12,10,.55) 100%)}
+
+.intro{position:absolute;z-index:3;left:var(--gutter);right:var(--gutter);bottom:clamp(88px, 14vh, 150px)}
+.intro::before{content:"";position:absolute;z-index:-1;left:calc(var(--gutter) * -1);bottom:calc(clamp(88px, 14vh, 150px) * -1);width:min(1100px, 100vw);height:calc(100% + 340px);pointer-events:none;
+  background:radial-gradient(ellipse 70% 62% at 18% 72%, rgba(12,16,13,.62) 0%, rgba(12,16,13,.32) 45%, rgba(12,16,13,0) 75%)}
+.intro h1{text-shadow:0 2px 40px rgba(0,0,0,.25);font-family:var(--serif);font-weight:500;font-size:clamp(48px, 8.4vw, 136px);line-height:.92;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.intro h1 em{font-style:italic;font-weight:400}
+.intro p{margin:22px 0 0;font-size:clamp(15px, 1.25vw, 18px);max-width:38ch;color:rgba(244,237,226,.88)}
+.cue{position:absolute;z-index:3;left:50%;bottom:28px;bottom:max(28px, env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(244,237,226,.8)}
+.cue i{display:block;width:1px;height:42px;background:rgba(244,237,226,.25);position:relative;overflow:hidden}
+.cue i::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--cream);animation:cue 2.4s var(--ease) infinite}
+@keyframes cue{0%{transform:translateY(0);opacity:0}25%{opacity:1}100%{transform:translateY(300%);opacity:0}}
+
+/* stop cards */
+.stops{position:absolute;inset:0;z-index:4;pointer-events:none}
+.stop{position:absolute;top:50%;transform:translateY(-50%);width:min(400px, 36vw)}
+.stop.l{left:var(--gutter)}
+.stop.r{right:var(--gutter)}
+.card{pointer-events:auto;padding:28px 30px 30px;border-radius:2px;background:rgba(18,22,19,.34);
+  -webkit-backdrop-filter:blur(18px) saturate(1.15);backdrop-filter:blur(18px) saturate(1.15);
+  border:1px solid var(--line-light);box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.card .meta{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--wood-light);margin-bottom:16px}
+.card .meta span:last-child{color:rgba(244,237,226,.55);font-variant-numeric:tabular-nums}
+.card h2{font-family:var(--serif);font-weight:500;font-size:clamp(30px, 2.6vw, 40px);line-height:1.05;margin:0 0 12px}
+.card p{margin:0;color:rgba(244,237,226,.86);font-size:15px;line-height:1.6}
+.stop.final{top:0;left:0;transform:none;width:auto}
+.final .card{background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none;padding:0;text-align:center}
+.final .final-title{display:none;font-family:var(--serif);font-weight:500;font-size:clamp(34px, 9vw, 52px);line-height:1;margin:0 0 8px}
+.final .final-sub{display:none;margin:0 0 22px;font-size:14px;color:rgba(244,237,226,.85)}
+.final.html-title .final-title,.final.html-title .final-sub{display:block}
+/* ha a beégetett cím le van vágva (álló képernyő), az üvegkártya rácsúszik és elmossa */
+.stop.final.html-title{top:clamp(88px, 12vh, 140px);left:50%;transform:translateX(-50%);width:min(520px, calc(100% - 28px))}
+.final.html-title .card{background:rgba(18,22,19,.38);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);border:1px solid var(--line-light);padding:30px 28px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:16px 28px;border-radius:999px;font-size:14px;font-weight:500;letter-spacing:.04em;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease)}
+.btn svg{width:16px;height:16px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-wood{background:var(--wood);color:#fff}
+.btn-wood:hover{background:#9A6638}
+.btn-cream{background:var(--cream);color:var(--coal)}
+.btn-cream:hover{background:#fff}
+.btn-ghost{border-color:rgba(244,237,226,.45);color:var(--cream)}
+.btn-ghost:hover{border-color:var(--cream);background:rgba(244,237,226,.08)}
+
+/* stop rail */
+.rail{position:absolute;z-index:4;right:var(--gutter);bottom:34px;display:flex;gap:6px;align-items:center;pointer-events:none}
+.rail b{display:block;width:18px;height:2px;background:rgba(244,237,226,.28);transition:background .4s, width .4s var(--ease)}
+.rail b.on{background:var(--cream);width:34px}
+.rail b.past{background:rgba(244,237,226,.6)}
+
+/* scrub mode: cards hidden until timeline reveals them */
+.scrub .stop .card{opacity:0;visibility:hidden}
+
+/* ---------- sections ---------- */
+section.block{padding:clamp(88px, 12vw, 176px) var(--gutter)}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--wood);margin:0 0 26px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.h2{font-family:var(--serif);font-weight:500;font-size:clamp(40px, 5.2vw, 76px);line-height:1;letter-spacing:-.01em;margin:0;text-wrap:balance}
+.h2 em{font-style:italic;font-weight:400;color:var(--wood)}
+.lead{font-size:clamp(16px, 1.2vw, 18px);color:var(--muted);max-width:46ch}
+.wrap{max-width:1320px;margin:0 auto}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity 1.2s var(--ease), transform 1.2s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.no-js .reveal{opacity:1;transform:none}
+
+/* amenities */
+.amen-head{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px, 6vw, 120px);align-items:end;margin-bottom:clamp(56px, 7vw, 96px)}
+.facts{display:flex;flex-wrap:wrap;gap:10px 0;margin:28px 0 0;padding:0;list-style:none;font-size:14px;color:var(--ink)}
+.facts li{padding-right:18px;margin-right:18px;border-right:1px solid var(--line);line-height:1.2}
+.facts li:last-child{border:0;margin:0;padding:0}
+.amen{display:grid;grid-template-columns:repeat(5, 1fr);border-top:1px solid var(--line);margin:0;padding:0;list-style:none}
+.amen li{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:34px 26px 30px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;gap:28px;transition:background .5s var(--ease)}
+.amen li:nth-child(5n){border-right:0}
+.amen li:hover{background:var(--cream-2)}
+.amen svg{width:40px;height:40px;color:var(--wood);stroke:currentColor;fill:none;stroke-width:1.15;stroke-linecap:round;stroke-linejoin:round}
+.amen strong{display:block;font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.1}
+.amen span{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.45}
+
+/* gallery */
+.gallery-sec{background:var(--forest);color:var(--cream)}
+.gallery-sec .lead{color:rgba(244,237,226,.7)}
+.gal-head{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:clamp(40px, 5vw, 72px)}
+.gal{display:grid;grid-template-columns:repeat(12, 1fr);grid-auto-rows:clamp(48px, 6.6vw, 96px);gap:clamp(8px, 1vw, 14px)}
+.gal button{position:relative;padding:0;border:0;background:var(--forest-2);cursor:zoom-in;overflow:hidden;border-radius:2px}
+.gal figure{margin:0;width:100%;height:100%}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease), filter 1s ease;filter:saturate(.95)}
+.gal button:hover img{transform:scale(1.035);filter:saturate(1.05)}
+.gal figcaption{position:absolute;left:14px;bottom:12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);opacity:0;transform:translateY(6px);transition:opacity .5s, transform .5s var(--ease);text-shadow:0 1px 12px rgba(0,0,0,.6)}
+.gal button:hover figcaption,.gal button:focus-visible figcaption{opacity:1;transform:none}
+.g1{grid-column:1/8;grid-row:1/6}
+.g3{grid-column:8/13;grid-row:1/4}
+.g2{grid-column:8/13;grid-row:4/6}
+.g4{grid-column:1/5;grid-row:6/10}
+.g5{grid-column:5/10;grid-row:6/10}
+.g6{grid-column:10/13;grid-row:6/10}
+.g7{grid-column:1/6;grid-row:10/14}
+.g8{grid-column:6/13;grid-row:10/14}
+.gal-note{margin-top:18px;font-size:12px;color:rgba(244,237,226,.5)}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(12,14,12,.94);padding:clamp(16px, 4vw, 64px)}
+.lb.open{display:flex;animation:fade .4s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.lb figure{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;gap:14px}
+.lb img{max-width:min(1400px, 100%);max-height:calc(100vh - 140px);max-height:calc(100svh - 140px);object-fit:contain}
+.lb figcaption{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,237,226,.75)}
+.lb button{position:absolute;background:none;border:1px solid rgba(244,237,226,.3);color:var(--cream);width:48px;height:48px;border-radius:50%;cursor:pointer;display:grid;place-items:center;transition:border-color .3s, background .3s}
+.lb button:hover{border-color:var(--cream);background:rgba(244,237,226,.08)}
+.lb button svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.4}
+.lb .x{top:20px;right:20px}
+.lb .prev{left:20px;top:50%;transform:translateY(-50%)}
+.lb .next{right:20px;top:50%;transform:translateY(-50%)}
+
+/* reviews */
+.rev-grid{display:grid;grid-template-columns:minmax(260px, .8fr) 2fr;gap:clamp(40px, 6vw, 110px);align-items:start}
+.score{position:sticky;top:120px}
+.score .num{font-family:var(--serif);font-weight:500;font-size:clamp(120px, 14vw, 220px);line-height:.8;letter-spacing:-.03em;display:flex;align-items:flex-start;gap:10px}
+.score .num sup{font-size:.22em;color:var(--wood);margin-top:.35em;line-height:1}
+.score ul{list-style:none;margin:28px 0 0;padding:0;font-size:14px}
+.score li{padding:12px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:16px}
+.score li span:last-child{color:var(--muted)}
+.quotes{display:grid;grid-template-columns:repeat(3, 1fr);gap:clamp(14px, 1.6vw, 24px)}
+.q{background:#FBF7F0;border:1px solid var(--line);padding:32px 28px 34px;display:flex;flex-direction:column;gap:18px;min-height:340px}
+.q:nth-child(2){margin-top:56px}
+.q:nth-child(3){margin-top:112px}
+.q .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--wood)}
+.q h3{font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.02;margin:0}
+.q p{margin:auto 0 0;color:var(--muted);font-size:15px}
+.rev-note{grid-column:2;margin:8px 0 0;font-size:12px;color:var(--muted)}
+
+/* booking */
+.book{background:var(--coal);color:var(--cream);position:relative;overflow:hidden}
+.book::before{content:"";position:absolute;inset:0;background:url("assets/img/galeria-8.webp") center/cover;opacity:.16;filter:saturate(.8)}
+.book .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px, 7vw, 130px)}
+.book .h2 em{color:var(--wood-light)}
+.book .lead{color:rgba(244,237,226,.72)}
+.info{list-style:none;margin:40px 0 44px;padding:0;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-light)}
+.info li{padding:18px 0;border-bottom:1px solid var(--line-light)}
+.info li:nth-child(odd){padding-right:20px}
+.info small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,237,226,.55);margin-bottom:4px}
+.info b{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.1}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+
+.form{background:rgba(244,237,226,.05);border:1px solid var(--line-light);padding:clamp(26px, 3vw, 44px);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);align-self:start}
+.form h3{font-family:var(--serif);font-weight:500;font-size:32px;margin:0 0 6px;line-height:1.1}
+.form > p{margin:0 0 26px;font-size:14px;color:rgba(244,237,226,.65)}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,237,226,.6)}
+.field input,.field select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(244,237,226,.3);padding:10px 0;color:var(--cream);font-size:16px;border-radius:0;outline:none;transition:border-color .3s;color-scheme:dark;-webkit-appearance:none;appearance:none}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23F4EDE2' stroke-width='1.2'%3E%3Cpath d='M1 1l5 5 5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center}
+.field select option{background:var(--coal)}
+.field input:focus,.field select:focus{border-color:var(--wood-light)}
+.form .btn{margin-top:30px;width:100%}
+.form-msg{margin:16px 0 0;font-size:14px;min-height:1.4em;color:var(--wood-light)}
+.form-msg a{color:var(--cream)}
+
+/* footer */
+footer{background:var(--forest);color:rgba(244,237,226,.78);padding:64px var(--gutter) 40px;padding-bottom:max(40px, env(safe-area-inset-bottom));font-size:14px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;align-items:start}
+footer .fname{font-family:var(--serif);font-size:30px;line-height:1.05;color:var(--cream);margin:0 0 6px}
+footer small{display:block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(244,237,226,.45);margin-bottom:6px}
+footer p{margin:0}
+.ph{border-bottom:1px dashed rgba(244,237,226,.4)}
+.legal{max-width:1320px;margin:56px auto 0;padding-top:22px;border-top:1px solid var(--line-light);display:flex;justify-content:space-between;gap:16px;font-size:12px;color:rgba(244,237,226,.45)}
+
+/* ---------- responsive ---------- */
+@media (max-width: 1100px){
+  .amen{grid-template-columns:repeat(3, 1fr)}
+  .amen li:nth-child(5n){border-right:1px solid var(--line)}
+  .amen li:nth-child(3n){border-right:0}
+  .quotes{grid-template-columns:1fr}
+  .q,.q:nth-child(2),.q:nth-child(3){margin-top:0;min-height:0}
+  .q p{margin-top:0}
+}
+@media (max-width: 820px){
+  body{font-size:15px}
+  .top{padding-top:max(14px, env(safe-area-inset-top));padding-bottom:14px}
+  .brand{font-size:18px}
+  .top-cta{padding:9px 14px;font-size:12px}
+  .intro{bottom:calc(118px + (100vh - 100svh))}
+  .intro p{max-width:30ch}
+  .stop,.stop.l,.stop.r{left:14px;right:14px;width:auto;top:auto;bottom:calc(16px + (100vh - 100svh));bottom:calc(max(16px, env(safe-area-inset-bottom)) + (100lvh - 100svh));transform:none}
+  .card{padding:22px 22px 24px}
+  .card h2{font-size:30px}
+  .card p{font-size:14.5px}
+  .stop.final,.stop.final.html-title{top:calc(max(14px, env(safe-area-inset-top)) + 84px);bottom:auto;left:0;right:0;width:auto;transform:none}
+  .final .card,.final.html-title .card{padding:28px 22px;border-left:0;border-right:0}
+  .final .btn{width:100%}
+  .rail{left:50%;right:auto;transform:translateX(-50%);top:calc(max(14px, env(safe-area-inset-top)) + 58px);bottom:auto}
+  .rail b{width:12px}.rail b.on{width:24px}
+  .amen-head{grid-template-columns:1fr;gap:20px}
+  .amen{grid-template-columns:1fr 1fr}
+  .amen li,.amen li:nth-child(5n),.amen li:nth-child(3n){border-right:1px solid var(--line)}
+  .amen li:nth-child(2n){border-right:0}
+  .amen li{padding:24px 18px;min-height:160px;gap:22px}
+  .amen svg{width:34px;height:34px}
+  .amen strong{font-size:21px}
+  .gal-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:auto;gap:8px}
+  .gal button{aspect-ratio:4/5;grid-column:auto !important;grid-row:auto !important}
+  .gal .g1,.gal .g8{grid-column:1/-1 !important;aspect-ratio:16/10}
+  .gal figcaption{opacity:1;transform:none;font-size:10.5px;left:10px;bottom:8px}
+  .rev-grid{grid-template-columns:1fr}
+  .score{position:static}
+  .rev-note{grid-column:1}
+  .book .wrap{grid-template-columns:1fr}
+  .info b{font-size:22px}
+  .actions .btn{flex:1 1 100%}
+  .fields{grid-template-columns:1fr 1fr}
+  footer .wrap{grid-template-columns:1fr;gap:28px}
+  .legal{flex-direction:column}
+  .lb .prev,.lb .next{top:auto;bottom:24px;transform:none}
+  .lb .prev{left:calc(50% - 60px)}.lb .next{right:calc(50% - 60px)}
+  .lb img{max-height:calc(100svh - 200px)}
+}
+@media (max-width: 420px){
+  .fields{grid-template-columns:1fr}
+  .info{grid-template-columns:1fr}
+  .info li:nth-child(odd){padding-right:0}
+}
+
+/* ---------- reduced motion: static hero + stop list ---------- */
+.rm .tour{height:auto;min-height:0;overflow:visible;background:var(--forest)}
+.rm .tour .stage{position:relative;height:100vh;height:100svh;overflow:hidden}
+.rm .tour video,.rm .cue,.rm .rail{display:none}
+.rm .tour::after{display:none}
+.rm .stage::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg, rgba(10,12,10,.42) 0%, rgba(10,12,10,0) 25%, rgba(10,12,10,.6) 100%)}
+.rm .stops{position:static;display:grid;grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));gap:14px;padding:clamp(40px, 6vw, 80px) var(--gutter)}
+.rm .stop,.rm .stop.final{position:static;transform:none;width:auto}
+.rm .card,.rm .final .card{background:var(--forest-2);-webkit-backdrop-filter:none;backdrop-filter:none;border:1px solid var(--line-light);padding:26px;text-align:left}
+.rm .final .final-title,.rm .final .final-sub{display:block}
+.rm .final .final-title{font-size:30px}
+.rm .final .btn{width:100%;padding-left:18px;padding-right:18px}
+.rm .reveal{opacity:1;transform:none;transition:none}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important}
+}
+</style>
+</head>
+<body>
+
+<div class="loadbar" id="loadbar" aria-hidden="true"><span></span><em class="lbl">Bejárás betöltése <b>0</b>%</em></div>
+
+<header class="top" id="top">
+  <a class="brand" href="#">Juniper Chalet<small>Mátraszentimre</small></a>
+  <a class="top-cta" href="#foglalas">Foglalás</a>
+</header>
+
+<main>
+<!-- ======================= 1. HERO / BEJÁRÁS ======================= -->
+<section class="tour" id="tour" aria-label="Videós bejárás">
+  <div class="stage">
+    <img class="poster" src="assets/img/poster.jpg" alt="A fekete fémtetős A-ház cölöpökön, a Mátra bükkösében" width="1920" height="1080">
+    <video id="tourVideo" muted playsinline preload="auto" disableremoteplayback aria-hidden="true" tabindex="-1"></video>
+
+    <div class="intro" id="intro">
+      <h1>Wellness kabin<br> <em>a&nbsp;Mátrában</em></h1>
+      <p>Erdei A-ház privát jakuzzival és szaunával – Mátraszentimre</p>
+    </div>
+    <div class="cue" id="cue" aria-hidden="true">Görgessen<i></i></div>
+  </div>
+
+  <div class="stops" id="stops">
+    <div class="stop l"><article class="card"><div class="meta"><span>01</span><span>00:02</span></div><h2>Az erdő közepén</h2><p>A ház a Mátra bükkösében áll, cölöpökön, a lombkorona magasságában.</p></article></div>
+    <div class="stop r"><article class="card"><div class="meta"><span>02</span><span>00:05</span></div><h2>Belépés</h2><p>Világos, meleg terek, felszerelt konyha, önálló bejutás kulcsdobozzal.</p></article></div>
+    <div class="stop l"><article class="card"><div class="meta"><span>03</span><span>00:08</span></div><h2>Hálószoba</h2><p>Queen méretű ágy, meleg lámpafény, kilátás a fákra.</p></article></div>
+    <div class="stop r"><article class="card"><div class="meta"><span>04</span><span>00:12</span></div><h2>Nappali az üvegfal alatt</h2><p>A háromszög üvegfal az erdőre néz, a teraszra közvetlenül kiléphet.</p></article></div>
+    <div class="stop l"><article class="card"><div class="meta"><span>05</span><span>00:15</span></div><h2>Át a pallón</h2><p>Fapalló vezet a ház mellett a wellness-pavilonhoz.</p></article></div>
+    <div class="stop r"><article class="card"><div class="meta"><span>06</span><span>00:17</span></div><h2>Privát wellness</h2><p>Jakuzzi és infraszauna csak az Önök számára, egy túrázással töltött nap után.</p></article></div>
+    <div class="stop final" id="finalStop"><div class="card">
+      <p class="final-title">Wellness kabin a Mátrában</p>
+      <p class="final-sub">Mátraszentimre · jakuzzi · infraszauna · erdő</p>
+      <a class="btn btn-cream js-book" href="#" target="_blank" rel="noopener">Foglalja le az időpontját <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div></div>
+  </div>
+
+  <div class="rail" id="rail" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+</section>
+
+<!-- ======================= 2. FELSZERELTSÉG ======================= -->
+<section class="block" id="felszereltseg">
+  <div class="wrap">
+    <div class="amen-head">
+      <div class="reveal">
+        <p class="eyebrow">A ház</p>
+        <h2 class="h2">Csend a fák között, <em>minden kényelemmel</em></h2>
+      </div>
+      <div class="reveal">
+        <p class="lead">Wabi-sabi és skandináv belső, fekete fémtető, cölöpökön álló A-ház. Egy hálószoba, galéria létrával, és egy fedett pavilon, ahol a jakuzzi és az infraszauna csak Önöket várja.</p>
+        <ul class="facts">
+          <li>Max. 4 vendég</li><li>1 hálószoba, queen ágy</li><li>1 fürdőszoba</li><li>Galéria létrával</li>
+        </ul>
+      </div>
+    </div>
+
+    <ul class="amen">
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 21h30v3a8 8 0 0 1-8 8H13a8 8 0 0 1-8-8z"/><path d="M10 32l-1.5 3M30 32l1.5 3"/><path d="M5 21v-9a3 3 0 0 1 6 0"/><path d="M17 15c-1.4-1.6 1.4-3 0-4.6M23 15c-1.4-1.6 1.4-3 0-4.6M29 15c-1.4-1.6 1.4-3 0-4.6"/><circle cx="15" cy="26" r=".8"/><circle cx="21" cy="27.5" r=".8"/><circle cx="26" cy="25.5" r=".8"/></svg>
+        <div><strong>Jakuzzi</strong><span>Privát, fedett pavilonban</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M7 35V9l13-5 13 5v26"/><path d="M7 25h26M11 25v10M29 25v10"/><path d="M15 20c-1.6-2 1.6-3.5 0-5.6s1.6-3.5 0-5.4M20 20c-1.6-2 1.6-3.5 0-5.6s1.6-3.5 0-5.4M25 20c-1.6-2 1.6-3.5 0-5.6s1.6-3.5 0-5.4"/></svg>
+        <div><strong>Infraszauna</strong><span>A jakuzzi mellett</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 28c-4.4 0-7-2.8-7-6.6 0-4.6 4.4-6.6 4.2-11.4 3.4 1.6 4.4 4.6 4 7 1.2-.6 2-1.8 2.2-3.2 2.2 1.8 3.6 4.4 3.6 7.6 0 3.8-2.6 6.6-7 6.6z"/><path d="M20 28c-1.8 0-3-1.2-3-2.8 0-2 2-3 2-5 2 1 4 2.6 4 5 0 1.6-1.2 2.8-3 2.8z"/><path d="M7 30l26 6M33 30L7 36"/></svg>
+        <div><strong>Tűzrakó</strong><span>Az erdőben, esti tűzhöz</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 17h24v10a6 6 0 0 1-6 6H14a6 6 0 0 1-6-6z"/><path d="M4 19h4M32 19h4"/><path d="M7 14h26"/><path d="M18 14v-2h4v2"/><path d="M15 9c-1-1.2 1-2.2 0-3.4M20 8c-1-1.2 1-2.2 0-3.4M25 9c-1-1.2 1-2.2 0-3.4"/></svg>
+        <div><strong>Konyha</strong><span>Teljesen felszerelt</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 16a21 21 0 0 1 30 0"/><path d="M10 21.5a13.5 13.5 0 0 1 20 0"/><path d="M15 27a6.5 6.5 0 0 1 10 0"/><circle cx="20" cy="31.5" r="1.2"/></svg>
+        <div><strong>Wi-Fi</strong><span>Vezeték nélküli internet</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="8" width="30" height="13" rx="2"/><path d="M9 17h22"/><circle cx="30" cy="12" r=".8"/><path d="M12 25c0 3-2 4-2 7M20 25v8M28 25c0 3 2 4 2 7"/></svg>
+        <div><strong>Klíma</strong><span>Légkondicionált terek</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 26h32M8 26v9M32 26v9"/><path d="M12 26l1.5-9h13l1.5 9"/><path d="M17 22h6"/><path d="M33 26v-7l-4-6"/><path d="M27 12l4.5-1.5 1 3z"/></svg>
+        <div><strong>Munkasarok</strong><span>Külön sarok, ha dolgozna</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="7" y="7" width="26" height="26" rx="5"/><path d="M16 28V13h5.5a4.5 4.5 0 0 1 0 9H16"/></svg>
+        <div><strong>Ingyenes parkolás</strong><span>Autóval is kényelmes</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 21c-4.5 0-9 6.5-9 9.5 0 2.4 2 3.5 4 3.5 2.2 0 3.2-1 5-1s2.8 1 5 1c2 0 4-1.1 4-3.5 0-3-4.5-9.5-9-9.5z"/><ellipse cx="11" cy="17" rx="2.6" ry="3.4" transform="rotate(-20 11 17)"/><ellipse cx="17" cy="11" rx="2.6" ry="3.6" transform="rotate(-6 17 11)"/><ellipse cx="23" cy="11" rx="2.6" ry="3.6" transform="rotate(6 23 11)"/><ellipse cx="29" cy="17" rx="2.6" ry="3.4" transform="rotate(20 29 17)"/></svg>
+        <div><strong>Kisállatbarát</strong><span>Kedvence is jöhet</span></div>
+      </li>
+      <li class="reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="9" y="5" width="22" height="30" rx="3"/><circle cx="15" cy="12" r=".9"/><circle cx="20" cy="12" r=".9"/><circle cx="25" cy="12" r=".9"/><circle cx="15" cy="17" r=".9"/><circle cx="20" cy="17" r=".9"/><circle cx="25" cy="17" r=".9"/><circle cx="20" cy="26" r="3"/><path d="M20 29v2.5"/></svg>
+        <div><strong>Önálló bejutás</strong><span>Kulcsdobozzal, 15:00 után</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================= 3. GALÉRIA ======================= -->
+<section class="block gallery-sec" id="galeria">
+  <div class="wrap">
+    <div class="gal-head">
+      <div class="reveal">
+        <p class="eyebrow">Galéria</p>
+        <h2 class="h2">Közelebbről</h2>
+      </div>
+      <p class="lead reveal">Kattintson bármelyik képre a nagyításhoz. Túra- és kerékpárutak indulnak a közelből, a nap végén pedig a pavilon fényei várják.</p>
+    </div>
+    <div class="gal" id="gal">
+      <button class="g1 reveal" data-i="0"><figure><img src="assets/img/galeria-1.webp" alt="A fekete fémtetős A-ház cölöpökön, terasszal, a bükkösben" loading="lazy" width="1600" height="900"><figcaption>Az A-ház a bükkösben</figcaption></figure></button>
+      <button class="g3 reveal" data-i="1"><figure><img src="assets/img/galeria-3.webp" alt="Hálószoba queen méretű ággyal és két éjjeli lámpával" loading="lazy" width="1600" height="900"><figcaption>Hálószoba</figcaption></figure></button>
+      <button class="g2 reveal" data-i="2"><figure><img src="assets/img/galeria-2.webp" alt="Felszerelt konyha fehér pulttal és fekete páraelszívóval" loading="lazy" width="1600" height="900"><figcaption>Konyha</figcaption></figure></button>
+      <button class="g4 reveal" data-i="3"><figure><img src="assets/img/galeria-4.webp" alt="Nappali fonott lámpával a háromszög üvegfal előtt" loading="lazy" width="1600" height="900"><figcaption>Nappali</figcaption></figure></button>
+      <button class="g5 reveal" data-i="4"><figure><img src="assets/img/galeria-5.webp" alt="Háromszög üvegfal kilátással az erdőre és a teraszra" loading="lazy" width="1600" height="900"><figcaption>Üvegfal az erdőre</figcaption></figure></button>
+      <button class="g6 reveal" data-i="5"><figure><img src="assets/img/galeria-6.webp" alt="Fapalló a fekete fémtető mellett" loading="lazy" width="1600" height="900"><figcaption>A palló</figcaption></figure></button>
+      <button class="g7 reveal" data-i="6"><figure><img src="assets/img/galeria-7.webp" alt="A fedett wellness-pavilon felülről, fa terasszal" loading="lazy" width="1600" height="900"><figcaption>Wellness-pavilon</figcaption></figure></button>
+      <button class="g8 reveal" data-i="7"><figure><img src="assets/img/galeria-8.webp" alt="A kivilágított ház és a pavilon esti fényben" loading="lazy" width="1600" height="900"><figcaption>Esti fények</figcaption></figure></button>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Képnézegető" hidden>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button class="x" id="lbX" aria-label="Bezárás"><svg viewBox="0 0 18 18"><path d="M3 3l12 12M15 3L3 15"/></svg></button>
+  <button class="prev" id="lbP" aria-label="Előző kép"><svg viewBox="0 0 18 18"><path d="M11 3L5 9l6 6"/></svg></button>
+  <button class="next" id="lbN" aria-label="Következő kép"><svg viewBox="0 0 18 18"><path d="M7 3l6 6-6 6"/></svg></button>
+</div>
+
+<!-- ======================= 4. VENDÉGVÉLEMÉNYEK ======================= -->
+<section class="block" id="velemenyek">
+  <div class="wrap rev-grid">
+    <div class="score reveal">
+      <p class="eyebrow">Vendégvélemények</p>
+      <div class="num" aria-label="4,9 a 5-ből">4,9<sup>★</sup></div>
+      <ul>
+        <li><span>Értékelések</span><span>20</span></li>
+        <li><span>Vendégkedvenc</span><span>Airbnb</span></li>
+        <li><span>Házigazda</span><span>Superhost</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="quotes">
+        <article class="q reveal"><span class="tag">Amit kiemelnek</span><h3>Nyugalom</h3><p>A legtöbbször visszatérő élmény a csend. Az erdő közepén nincs, ami megzavarja a pihenést, csak a fák és a saját tempója.</p></article>
+        <article class="q reveal"><span class="tag">Amit kiemelnek</span><h3>Romantikus és privát</h3><p>Kettesben töltött napokra szabott hely. A ház elvonult, a wellness-pavilont pedig senkivel sem kell megosztaniuk.</p></article>
+        <article class="q reveal"><span class="tag">Amit kiemelnek</span><h3>A pezsgőfürdő</h3><p>A vendégek kedvence a jakuzzi: egy hosszú túra után, esti fényeknél, a fák között ülni benne.</p></article>
+      </div>
+      <p class="rev-note">Saját összefoglalónk arról, amit a vendégek leggyakrabban szeretnek. Nem szó szerinti idézetek.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 5. FOGLALÁS ======================= -->
+<section class="block book" id="foglalas">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--wood-light)">Foglalás</p>
+      <h2 class="h2 reveal">Foglalja le <em>az időpontját</em></h2>
+      <ul class="info reveal">
+        <li><small>Vendégek</small><b>Max. 4 fő</b></li>
+        <li><small>Hálószoba</small><b>1, queen ággyal</b></li>
+        <li><small>Érkezés</small><b>15:00 után</b></li>
+        <li><small>Távozás</small><b>11:00-ig</b></li>
+        <li><small>Minimum</small><b>2 éjszaka</b></li>
+        <li><small>Bejutás</small><b>Kulcsdobozzal</b></li>
+      </ul>
+      <div class="actions reveal">
+        <a class="btn btn-wood js-book" href="#" target="_blank" rel="noopener">Foglalás <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn-ghost js-contact" href="#" target="_blank" rel="noopener">Kérdése van? Írjon nekünk</a>
+      </div>
+    </div>
+
+    <form class="form reveal" id="inquiry" novalidate data-endpoint="">
+      <h3>Érdeklődés</h3>
+      <p>Nem kötelező érvényű. Megírjuk, szabad-e a kért időszak.</p>
+      <div class="fields">
+        <div class="field full"><label for="f-name">Név</label><input id="f-name" name="nev" type="text" autocomplete="name" required></div>
+        <div class="field full"><label for="f-mail">E-mail</label><input id="f-mail" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+        <div class="field"><label for="f-in">Érkezés</label><input id="f-in" name="erkezes" type="date" required></div>
+        <div class="field"><label for="f-out">Távozás</label><input id="f-out" name="tavozas" type="date" required></div>
+        <div class="field full"><label for="f-guests">Vendégek száma</label>
+          <select id="f-guests" name="vendegek"><option>1</option><option selected>2</option><option>3</option><option>4</option></select></div>
+      </div>
+      <button class="btn btn-cream" type="submit">Érdeklődés elküldése</button>
+      <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ======================= 6. LÁBLÉC ======================= -->
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="fname">Wellness kabin a Mátrában</p>
+      <p>Juniper Chalet Mátra · Mátraszentimre</p>
+    </div>
+    <div>
+      <small>Kapcsolat</small>
+      <p><span class="ph">[telefonszám]</span><br><span class="ph">[e-mail cím]</span></p>
+    </div>
+    <div>
+      <small>NTAK regisztrációs szám</small>
+      <p>MA24104965</p>
+    </div>
+  </div>
+  <div class="legal"><span>© <span id="yr">2026</span> Juniper Chalet Mátra</span><span>Érkezés 15:00 után · Távozás 11:00-ig</span></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+(function(){
+  'use strict';
+
+  /* ---- Linkek (cserélhető) ---- */
+  var FOGLALASI_LINK = 'https://www.airbnb.hu/rooms/1401455863007689377';
+  var KAPCSOLAT = 'https://www.airbnb.hu/users/profile/1470722384896797128';
+  document.querySelectorAll('.js-book').forEach(function(a){ a.href = FOGLALASI_LINK; });
+  document.querySelectorAll('.js-contact').forEach(function(a){ a.href = KAPCSOLAT; });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  /* ---- Videó és megállók ---- */
+  var VIDEO_DESKTOP = 'assets/juniper_tour_polished_scrub.mp4';
+  var VIDEO_MOBILE  = 'assets/juniper_tour_mobile_scrub.mp4';
+  var START = 0.6;            // az első teljesen kivilágosodott képkocka (0,0-0,55 mp beúszás)
+  var STOPS = [2.0, 5.6, 8.5, 12.0, 15.4, 17.5, 20.5];
+  var TOTAL = 700;            // a pin hossza vh-ban
+  var HOLD = 40;              // megállónként ennyi vh-n át áll a videó
+  var FINAL_HOLD = 70;
+  var TITLE_POS = { x: 0.5, y: 0.315 }; // a beégetett cím alatti pont a képkockán (arányos)
+
+  var root = document.documentElement;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasGsap = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
+  var isMobile = window.matchMedia('(max-width: 820px)').matches;
+
+  var video = document.getElementById('tourVideo');
+  var tour = document.getElementById('tour');
+  var header = document.getElementById('top');
+  var finalStop = document.getElementById('finalStop');
+  var loadbar = document.getElementById('loadbar');
+
+  /* ---- Fejléc ---- */
+  function headerState(){
+    var past = tour.getBoundingClientRect().bottom < 80;
+    header.classList.toggle('solid', past);
+  }
+  window.addEventListener('scroll', headerState, { passive: true });
+
+  /* ---- Belépő animációk ---- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) {
+          var el = e.target;
+          var sibs = Array.prototype.filter.call(el.parentNode.children, function(c){ return c.classList.contains('reveal'); });
+          var idx = Math.max(0, sibs.indexOf(el));
+          el.style.transitionDelay = Math.min(idx, 6) * 70 + 'ms';
+          el.classList.add('in');
+          io.unobserve(el);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    revealEls.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ---- Csökkentett mozgás vagy GSAP nélkül: statikus hero + lista ---- */
+  if (reduce || !hasGsap) {
+    root.classList.add('rm');
+    loadbar.remove();
+    video.remove();
+    finalStop.classList.add('html-title');
+    headerState();
+    initRest();
+    return;
+  }
+  root.classList.add('scrub');
+
+  /* ---- Betöltés progress barral ---- */
+  var src = isMobile ? VIDEO_MOBILE : VIDEO_DESKTOP;
+  var barFill = loadbar.querySelector('span');
+  var barPct = loadbar.querySelector('b');
+  function setProgress(p){
+    p = Math.max(0, Math.min(1, p));
+    barFill.style.transform = 'scaleX(' + p + ')';
+    barPct.textContent = Math.round(p * 100);
+  }
+  function loadDone(){ setProgress(1); loadbar.classList.add('done'); setTimeout(function(){ loadbar.remove(); }, 1400); }
+
+  var videoReady = false;
+  function onVideoReady(){
+    if (videoReady) return;
+    videoReady = true;
+    video.currentTime = state.t;
+    // iOS: egy rövid play/pause után rajzolja ki megbízhatóan a képkockákat
+    var p = video.play();
+    if (p && p.then) p.then(function(){ video.pause(); video.currentTime = state.t; }).catch(function(){});
+    video.classList.add('ready');
+  }
+  video.addEventListener('loadeddata', onVideoReady);
+
+  function fallbackDirect(){
+    video.src = src;
+    video.load();
+    var poll = setInterval(function(){
+      if (video.duration && video.buffered.length) {
+        setProgress(video.buffered.end(video.buffered.length - 1) / video.duration);
+      }
+      if (video.duration && video.buffered.length && video.buffered.end(video.buffered.length - 1) >= video.duration - 0.1) {
+        clearInterval(poll); loadDone();
+      }
+    }, 200);
+  }
+
+  // A teljes fájlt memóriába töltjük, így a görgetés közbeni ugrás nem vár hálózatra.
+  function loadBlob(){
+    return fetch(src).then(function(res){
+      if (!res.ok || !res.body) throw new Error('fetch');
+      var total = +res.headers.get('Content-Length') || 0;
+      var reader = res.body.getReader();
+      var chunks = [], got = 0;
+      function pump(){
+        return reader.read().then(function(r){
+          if (r.done) return;
+          chunks.push(r.value); got += r.value.length;
+          if (total) setProgress(got / total);
+          return pump();
+        });
+      }
+      return pump().then(function(){
+        var blob = new Blob(chunks, { type: 'video/mp4' });
+        video.src = URL.createObjectURL(blob);
+        video.load();
+        loadDone();
+      });
+    });
+  }
+  if (window.fetch && window.ReadableStream && location.protocol !== 'file:') {
+    // egy újrapróbálás, utána közvetlen betöltés (ehhez a szervernek Range-kéréseket kell támogatnia)
+    loadBlob().catch(function(){ setProgress(0); return loadBlob(); }).catch(fallbackDirect);
+  } else {
+    fallbackDirect();
+  }
+
+  /* ---- Scroll timeline ---- */
+  gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
+
+  var state = { t: START };
+  var cards = gsap.utils.toArray('.stop .card');
+  var railDots = gsap.utils.toArray('#rail b');
+  var intro = document.getElementById('intro');
+  var cue = document.getElementById('cue');
+  var n = STOPS.length;
+  var K = (TOTAL - HOLD * (n - 1) - FINAL_HOLD) / (STOPS[n - 1] - START); // vh / videó-mp
+  var holds = [];
+
+  var tl = gsap.timeline({ defaults: { ease: 'none' } });
+  tl.to(intro, { autoAlpha: 0, y: -24, duration: 14, ease: 'power1.in' }, 2);
+  tl.to(cue, { autoAlpha: 0, duration: 6 }, 0);
+
+  var cursor = 0, prev = START;
+  STOPS.forEach(function(t, i){
+    var move = (t - prev) * K;
+    tl.to(state, { t: t, duration: move, ease: 'none' }, cursor);
+    cursor += move;
+    var hold = i === n - 1 ? FINAL_HOLD : HOLD;
+    holds.push([cursor, cursor + hold]);
+    // a kártya a megálló előtt kicsivel indul, és a megállás alatt végig látszik
+    tl.fromTo(cards[i], { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 8, ease: 'power2.out' }, cursor - 4);
+    if (i < n - 1) tl.to(cards[i], { autoAlpha: 0, y: -14, duration: 6, ease: 'power1.in' }, cursor + hold - 2);
+    cursor += hold;
+    prev = t;
+  });
+  tl.set({}, {}, TOTAL);
+
+  function updateRail(){
+    var time = tl.time();
+    var active = -1;
+    for (var i = 0; i < holds.length; i++) {
+      if (time >= holds[i][0] - 4 && time <= holds[i][1] + 2) { active = i; break; }
+    }
+    railDots.forEach(function(d, i){
+      d.classList.toggle('on', i === active);
+      d.classList.toggle('past', active === -1 ? time > holds[i][1] : i < active);
+    });
+  }
+  tl.eventCallback('onUpdate', updateRail);
+
+  ScrollTrigger.create({
+    trigger: tour,
+    start: 'top top',
+    end: function(){ return '+=' + Math.round(window.innerHeight * TOTAL / 100); },
+    pin: true,
+    scrub: 1,
+    animation: tl,
+    invalidateOnRefresh: true,
+    onLeave: headerState,
+    onEnterBack: headerState
+  });
+
+  /* ---- A videó követi a timeline-t (csak ha az előző ugrás már kész) ---- */
+  var FRAME = 1 / 24;
+  function tick(){
+    if (videoReady && !video.seeking) {
+      var target = Math.min(state.t, video.duration ? video.duration - 0.05 : state.t);
+      if (Math.abs(video.currentTime - target) > FRAME * 0.5) video.currentTime = target;
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  /* ---- Utolsó megálló: CTA a beégetett cím alá, ha a cím látszik ---- */
+  function placeFinal(){
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var va = 1920 / 1080, sa = vw / vh;
+    var w, h, ox, oy;
+    if (sa > va) { w = vw; h = vw / va; ox = 0; oy = (vh - h) / 2; }
+    else { h = vh; w = vh * va; oy = 0; ox = (vw - w) / 2; }
+    var visibleW = vw / w; // a képkocka szélességéből ennyi látszik
+    var burnedVisible = visibleW > 0.78 && !isMobile;
+    finalStop.classList.toggle('html-title', !burnedVisible);
+    if (burnedVisible) {
+      var x = ox + TITLE_POS.x * w, y = oy + TITLE_POS.y * h;
+      finalStop.style.left = (x - finalStop.offsetWidth / 2) + 'px';
+      finalStop.style.top = y + 'px';
+      finalStop.style.right = 'auto';
+    } else {
+      finalStop.style.left = finalStop.style.top = finalStop.style.right = '';
+    }
+  }
+  placeFinal();
+  window.addEventListener('resize', placeFinal);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ placeFinal(); ScrollTrigger.refresh(); });
+  window.addEventListener('load', function(){ ScrollTrigger.refresh(); });
+
+  // hibakereséshez / ellenőrzéshez
+  window.__tour = { tl: tl, state: state, video: video, holds: holds, stops: STOPS, total: TOTAL };
+
+  headerState();
+  initRest();
+
+  /* ================= Galéria lightbox + űrlap ================= */
+  function initRest(){
+    var items = Array.prototype.map.call(document.querySelectorAll('#gal button'), function(b){
+      var img = b.querySelector('img');
+      return { src: img.getAttribute('src'), alt: img.alt, cap: b.querySelector('figcaption').textContent, btn: b };
+    });
+    var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+    var cur = 0, lastFocus = null;
+    function show(i){
+      cur = (i + items.length) % items.length;
+      lbImg.src = items[cur].src; lbImg.alt = items[cur].alt;
+      lbCap.textContent = (cur + 1) + ' / ' + items.length + '  ·  ' + items[cur].cap;
+    }
+    function open(i){
+      lastFocus = document.activeElement;
+      show(i); lb.hidden = false; lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('lbX').focus();
+    }
+    function close(){
+      lb.classList.remove('open'); lb.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocus) lastFocus.focus();
+    }
+    items.forEach(function(it, i){ it.btn.addEventListener('click', function(){ open(i); }); });
+    document.getElementById('lbX').addEventListener('click', close);
+    document.getElementById('lbP').addEventListener('click', function(){ show(cur - 1); });
+    document.getElementById('lbN').addEventListener('click', function(){ show(cur + 1); });
+    lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+    document.addEventListener('keydown', function(e){
+      if (lb.hidden) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') show(cur - 1);
+      if (e.key === 'ArrowRight') show(cur + 1);
+      if (e.key === 'Tab') { // fókusz a dialóguson belül
+        var f = lb.querySelectorAll('button'), first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+    var sx = null;
+    lb.addEventListener('touchstart', function(e){ sx = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', function(e){
+      if (sx === null) return;
+      var dx = e.changedTouches[0].clientX - sx;
+      if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1));
+      sx = null;
+    });
+
+    // Űrlap
+    var form = document.getElementById('inquiry'), msg = document.getElementById('formMsg');
+    var fin = document.getElementById('f-in'), fout = document.getElementById('f-out');
+    function iso(d){ return d.toISOString().slice(0, 10); }
+    var today = new Date(); fin.min = iso(today);
+    fin.addEventListener('change', function(){
+      if (!fin.value) return;
+      var d = new Date(fin.value); d.setDate(d.getDate() + 2);
+      fout.min = iso(d);
+      if (!fout.value || fout.value < fout.min) fout.value = fout.min;
+    });
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      msg.textContent = '';
+      if (fin.value && fout.value && (new Date(fout.value) - new Date(fin.value)) / 864e5 < 2) { msg.textContent = 'A minimális tartózkodás 2 éjszaka.'; fout.focus(); return; }
+      var bad = Array.prototype.find.call(form.querySelectorAll('[required]'), function(el){ return !el.checkValidity(); });
+      if (bad) { msg.textContent = 'Kérjük, töltse ki a(z) ' + form.querySelector('label[for="' + bad.id + '"]').textContent.toLowerCase() + ' mezőt.'; bad.focus(); return; }
+      var nights = (new Date(fout.value) - new Date(fin.value)) / 864e5;
+      if (!(nights >= 2)) { msg.textContent = 'A minimális tartózkodás 2 éjszaka.'; fout.focus(); return; }
+      var endpoint = form.getAttribute('data-endpoint');
+      if (endpoint) {
+        fetch(endpoint, { method: 'POST', body: new FormData(form) })
+          .then(function(r){ if (!r.ok) throw 0; form.reset(); msg.textContent = 'Köszönjük! Hamarosan válaszolunk.'; })
+          .catch(function(){ msg.innerHTML = 'Az elküldés nem sikerült. Kérjük, <a href="' + KAPCSOLAT + '" target="_blank" rel="noopener">írjon nekünk az Airbnb-n</a>.'; });
+      } else {
+        // TODO: a data-endpoint attribútumba kerül az űrlapfeldolgozó címe (pl. Formspree).
+        msg.innerHTML = 'Az űrlap még nincs bekötve. Addig kérjük, <a href="' + KAPCSOLAT + '" target="_blank" rel="noopener">írjon nekünk az Airbnb-n</a>.';
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
